@@ -47,3 +47,38 @@ function duplicateCount(text){
   // 4
   // console.log(duplicateCount("Indivisibilities"));
   // 2
+
+
+
+
+
+// INPUT: A string
+// ALG: 
+  //  1. Set up variables/turn string to lower case and split into an array
+  //  2. Use two for loops to select a character, then test that character in the second array. 
+  //  3. If the selected character is equal to a tested character, then the function returns false; if not, the loops runs until completed (Might want to improve this, since it runs many, many times).
+// OUTPUT: Whether or not the string is an isogram
+function isIsogram(str){
+  var testStr = true // Initialized as true, will be false if duplicate 
+  var charArr = []; // Initilized as an empty array
+  str = str.toLowerCase(); // Sends the string to lower case
+  charArr = str.split('') // Splits the string into an array of the characters in it
+  // The following first selects a character, in the second loop it tests that character to see if it has any duplicates. If true, it sets testStr to false, if false, it keeps it true. Once these loops are done, it returns testStr.
+      for (var select = 0; select < charArr.length; select++){
+          for (var test = select + 1; test <charArr.length; test++) {
+              if (charArr[select] == charArr[test]) {
+              testStr = false
+              }
+          }
+      }
+      return testStr
+  }
+// testing
+// console.log(isIsogram("Dermatoglyphics"))
+// true
+// console.log(isIsogram("aba"))
+// false
+// console.log(isIsogram("Let's Go"))
+// true
+// console.log(isIsogram("LET'S GOOOOOOOOOOOO"))
+// false
