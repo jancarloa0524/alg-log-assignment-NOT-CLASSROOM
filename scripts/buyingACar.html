@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        
+        <!-- CSS -->
+        
+        <title>Title</title>
+    </head>
+    <body>
+        <!-- HTML -->
+        Nothing here!
+        
+        <!-- JS -->
+        
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"></script>
+        <script>
+            // INPUT: Starting price of old car; Starting price of new car; Savings per month; Percent loss per month of both cars
+            // ALG: 
+                // 1: First, I need to establish the values of some variables used to assist in calculations
+                // 2: 
+            // OUTPUT: Number of months, difference between savingsPerMonth and startPriceNew, ONLY when the car is affordable
+            function nbMonths(startPriceOld, startPriceNew, savingperMonth, percentLossByMonth){
+                var savingsPlusOld = savingperMonth;
+                var difference;
+                var finalAnswer;
+                percentLossByMonth = percentLossByMonth / 100 // Finds decimal value of percentage
+                for (var month = 0; savingsPlusOld < startPriceNew; month++) {
+                    if (startPriceOld => startPriceNew) {
+                        savingsPlusOld = startPriceOld;
+                    }
+                    if (month % 2 == 0 && month != 0) {
+                        percentLossByMonth = percentLossByMonth + 0.005;
+                    }
+                    if (month == 0) {
+                        difference = startPriceOld - startPriceNew;
+                        finalAnswer = [month, Math.round(difference)];
+                    } else {
+                    startPriceOld = startPriceOld - (startPriceOld * percentLossByMonth);
+                    startPriceNew = startPriceNew - (startPriceNew * percentLossByMonth);
+                    savingsPlusOld = (savingperMonth * month) + startPriceOld;
+                    difference = savingsPlusOld - startPriceNew;
+                    finalAnswer = [month, Math.round(difference)];
+                    }
+                }
+
+                return finalAnswer;
+            }
+            console.log(nbMonths(2000, 8000, 1000, 1.5)); // should return [6, 766]
+            console.log(nbMonths(12000, 8000, 1000, 1.5)); // should return [0, 4000]
+            console.log(nbMonths(8000, 8000, 1000, 1.5)); // should return [0, 0]
+            console.log(nbMonths(2500, 3600, 1000, 1.2)); // should return [2, 932]
+        </script>
+    </body>
+</html>
