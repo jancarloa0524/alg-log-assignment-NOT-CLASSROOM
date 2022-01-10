@@ -127,7 +127,7 @@ function isIsogram(str){
     return finalAnswer;
 }
 // Testing
-console.log(nbMonths(2000, 8000, 1000, 1.5)); // should return [6, 766]
-console.log(nbMonths(12000, 8000, 1000, 1.5)); // should return [0, 4000]
-console.log(nbMonths(8000, 8000, 1000, 1.5)); // should return [0, 0]
-console.log(nbMonths(2500, 3600, 1000, 1.2)); // should return [2, 932]
+// console.log(nbMonths(2000, 8000, 1000, 1.5)); // should return [6, 766]
+// console.log(nbMonths(12000, 8000, 1000, 1.5)); // should return [0, 4000]
+// console.log(nbMonths(8000, 8000, 1000, 1.5)); // should return [0, 0]
+// console.log(nbMonths(2500, 3600, 1000, 1.2)); // should return [2, 932]
